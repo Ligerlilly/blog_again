@@ -1,13 +1,21 @@
-<h1><%= @post.title %></h1>
-<div class='row'>
-  <% @post.tags.each do |tag| %>
+
+<div class='row well'>
+  <h3>Tags:</h3><% @post.tags.each do |tag| %>
     <div class='col-sm-4'>
-      <%= tag.name %>
+      <h4><%= link_to tag.name, tag_path(tag) %></h4>
     </div>
   <% end %>
 </div>
-<p class='post-content'>
-  <%= @post.content %>
-</p>
+
+
+<div class="panel panel-default row">
+  <div class="panel-heading"><h1><%= @post.title %></h1></div>
+  <div class="panel-body">
+    <p class='post-content'>
+      <%= @post.content %>
+    </p>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Delete', post_path(@post), data: { confirm: 'Are you sure?', method: 'delete' } %>

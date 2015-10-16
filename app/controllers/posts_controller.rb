@@ -33,6 +33,9 @@ class PostsController < ApplicationController
 
 
   def update
+    params[:tags].each do |tag|
+      @post.tags << Tag.find_by_name(tag)
+    end
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
