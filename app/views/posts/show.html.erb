@@ -17,5 +17,7 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Delete', post_path(@post), data: { confirm: 'Are you sure?', method: 'delete' } %>
+<% if current_user %>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+  <%= link_to 'Delete', post_path(@post), data: { confirm: 'Are you sure?', method: 'delete' } %>
+<% end %>

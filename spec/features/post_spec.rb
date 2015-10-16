@@ -4,6 +4,8 @@ describe 'Post CRUD actions' do
   before do
     post = FactoryGirl.create(:post, id: 3)
     tag = FactoryGirl.create(:tag)
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
   end
   describe 'Creating posts' do
     it 'make a new post' do

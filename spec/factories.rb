@@ -7,4 +7,8 @@ FactoryGirl.define do
   factory :tag do
     name 'test'
   end
+  factory :user do
+    email 'fred@aol.com'
+    password 'password'
+  end
 end
