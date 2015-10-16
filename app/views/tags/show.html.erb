@@ -1,0 +1,9 @@
+<h1><%= @tag.name %></h1>
+
+<div class='row'>
+  <% @tag.posts.each do |post| %>
+    <div class='col-sm-12'>
+      <h3><%= post.title %></h3>
+    </div>
+  <% end %>
+</div>

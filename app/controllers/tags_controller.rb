@@ -30,6 +30,9 @@ class TagsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def destroy
     @tag.destroy
     redirect_to posts_path
