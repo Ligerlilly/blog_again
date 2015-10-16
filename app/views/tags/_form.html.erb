@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', object: @tag %>
+<%= form_for [@tag] do |f| %>
+<div class='form-group'>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
+<%= f.submit class: 'btn btn-success' %>
+<% end %>

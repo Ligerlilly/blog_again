@@ -1,0 +1,22 @@
+<div class='jumbotron row'>
+  <center><h1>Blog Again</h1></center>
+</div>
+
+
+<div class='row well'>
+  <h3>Tags:</h3><% @tags.each do |tag| %>
+    <div class='col-sm-3'>
+      <h4><%= tag.name %></h4>
+    </div>
+  <% end %>
+</div>
+
+<center><%= link_to 'Add Post', new_post_path, class: 'btn btn-primary btn-lg' %></center>
+
+<div class='row'>
+  <% @posts.each do |post| %>
+      <div class='col-md-12'>
+        <h3><%= link_to post.title, post_path(post) %> <small>created <%= time_ago_in_words post.created_at %> ago</small></h3>
+      </div>
+  <% end %>
+</div>
