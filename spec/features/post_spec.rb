@@ -11,9 +11,10 @@ describe 'Post CRUD actions' do
       click_link 'Add Post'
       fill_in 'post_title', with: "Hi there"
       fill_in 'post_content', with: 'Nice person'
-      find(:css, "#tags_tag").set(true)
+      find(:css, "#tags_test").set(true)
       click_button "Create Post"
       expect(page).to have_content 'Hi there'
+      expect(page).to have_content 'test'
     end
   end
 
@@ -23,8 +24,10 @@ describe 'Post CRUD actions' do
       click_link 'Edit'
       fill_in 'post_title', with: "Editing"
       fill_in 'post_content', with: 'Post'
+      find(:css, "#tags_test").set(true)
       click_button "Update Post"
       expect(page).to have_content 'Editing'
+      expect(page).to have_content 'test'
     end
   end
 

@@ -1,9 +1,12 @@
 <h1><%= @tag.name %></h1>
+<%= link_to 'Edit', edit_tag_path(@tag) %>
+<%= link_to 'Delete', tag_path, data: { confirm: 'Are you sure?', method: 'delete' } %>
 
-<div class='row'>
-  <% @tag.posts.each do |post| %>
+
+<div class='row well'>
+  <h3>Posts:</h3><% @tag.posts.each do |post| %>
     <div class='col-sm-12'>
-      <h3><%= link_to post.title, post_path(post) %></h3>
+      <h4><%= link_to post.title, post_path(post) %></h4>
     </div>
   <% end %>
 </div>
