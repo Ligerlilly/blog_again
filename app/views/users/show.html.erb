@@ -1,0 +1,19 @@
+<h1><%= @user.user_name %></h1>
+
+<h4>Comments</h4>
+<% if current_user %>
+<%= form_for @comment do |f| %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :commentable_id, value: @user.id %>
+<%= f.hidden_field :commentable_type, value: "users" %>
+<%= f.text_field :content, class: 'form-control', placeholder: 'Enter comment here' %>
+<br>
+<%= f.submit class: 'btn btn-success' %>
+<% end %>
+<% end %>
+<br>
+<ul>
+  <% Comment.where("commentable_type = ? AND commentable_id = ?", "User", @user.id).order( 'created_at desc').each do |comment| %>
+  <li><span class='comment-author'><%= comment.user.user_name %></span>: <span class='comment'><%= comment.content %></span> <small>commented <%= time_ago_in_words comment.created_at %> ago</small> </li>
+  <% end %>
+</ul>
