@@ -24,6 +24,7 @@
           <% unless current_user %>
             <li><%= link_to 'Sign in', new_user_session_path %></li>
           <% else %>
+            <li><a><%= current_user.user_name %></a></li>
             <li><%= link_to 'Log out', destroy_user_session_path, method: 'delete' %></li>
           <% end %>
         </ul>
@@ -31,8 +32,14 @@
     </div>
   </nav>
 <div class='container'>
-  <p class="notice"><%= notice %></p>
-  <p class="danger"><%= alert %></p>
+  <% if alert %>
+  <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+  <% if notice %>
+  <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <br>
   <%= yield %>
 </div>
 

@@ -15,4 +15,14 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
+
+ul {
+  list-style: none;
+}
+
+.comment {
+  font-size: 1.5em;
+}
+.comment-author {
+  font-size: 2em;
+}
