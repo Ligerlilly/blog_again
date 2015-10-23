@@ -19,9 +19,9 @@ class PostsController < ApplicationController
     end
 
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: "Post created!"
     else
-      render :new
+      render :new, alert: 'Post not saved!'
     end
   end
 
