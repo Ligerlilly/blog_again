@@ -11,4 +11,8 @@ FactoryGirl.define do
     email 'fred@aol.com'
     password 'password'
   end
+
+  factory :comment do
+    content 'sup'
+  end
 end
