@@ -13,8 +13,9 @@
 
 <% if current_user %>
   <center><%= link_to 'Add Post', new_post_path, class: 'btn btn-primary btn-lg' %></center>
+<% else %>
+  <center><%= link_to 'Add Post', new_user_session_path, class: 'btn btn-primary btn-lg' %></center>
 <% end %>
-
 <div class='row'>
   <% @posts.each do |post| %>
       <div class='col-md-12'>

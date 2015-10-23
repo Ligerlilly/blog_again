@@ -1,0 +1,5 @@
+<% if @comment.commentable_type == 'User' %>
+  <%= render 'users/comment_form' %>
+<% else %>
+  <%= render 'posts/comment_form' %>
+<% end %>

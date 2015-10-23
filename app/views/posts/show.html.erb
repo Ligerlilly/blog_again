@@ -26,18 +26,15 @@
 
 <h4>Comments</h4>
 <% if current_user %>
-  <%= form_for @comment do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :commentable_id, value: @post.id %>
-  <%= f.hidden_field :commentable_type, value: "posts" %>
-  <%= f.text_field :content, class: 'form-control', placeholder: 'Enter comment here' %>
-  <br>
-  <%= f.submit class: 'btn btn-success' %>
-  <% end %>
+  <%= render 'comment_form' %>
 <% end %>
 <br>
 <ul>
   <% @post.comments.order( 'created_at desc').each do |comment| %>
-    <li><span class='comment-author'><%= comment.user.user_name %></span>: <span class='comment'><%= comment.content %></span> <small>commented <%= time_ago_in_words comment.created_at %> ago</small> </li>
+    <li><span class='comment-author'><%= comment.user.user_name %></span>:
+      <span class='comment'><%= comment.content %></span>
+      <small>commented <%= time_ago_in_words comment.created_at %> ago</small>
+      <%= link_to 'edit', edit_comment_path(comment) if current_user.id == comment.user.id %>
+      <%= link_to 'delete', comment_path(comment), data: { confirm: 'Are you sure?', method: 'delete' } if current_user.id == comment.user.id %></li>
   <% end %>
 </ul>
