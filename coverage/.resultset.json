@@ -900,7 +900,7 @@
         1,
         null,
         1,
-        null,
+        2,
         null
       ],
       "/Users/Guest/Desktop/blog_again/app/models/comment.rb": [
@@ -1086,6 +1086,6 @@
         null
       ]
     },
-    "timestamp": 1445633635
+    "timestamp": 1445633858
   }
 }
