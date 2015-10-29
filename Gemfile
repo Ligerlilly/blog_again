@@ -9,6 +9,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise'
+gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
+gem 'showdown-rails'
+gem 'autoprefixer-rails'
 
 group :development do
   gem 'byebug'
